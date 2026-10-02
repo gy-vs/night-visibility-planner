@@ -1,0 +1,18 @@
+{
+  "name": "night-visibility-workbench",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,green \"npm run dev -w server\" \"npm run dev -w web\"",
+    "build": "npm run build -w server && npm run build -w web",
+    "start": "node server/dist/index.js",
+    "test": "npm run test -w server && npm run test -w web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
